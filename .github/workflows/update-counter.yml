@@ -16,7 +16,12 @@ jobs:
         run: |
           chmod +x increment.sh
           ./increment.sh
-
+          
+      - name: Debug PAT
+        run: |
+          echo "PAT_TOKEN: $PAT_TOKEN"
+          git remote -v
+          
       - name: Commit and push changes
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
